@@ -1,0 +1,189 @@
+﻿<style>
+    .chartPie {
+        width: 100%;
+        height: 500px;
+    }
+    @@media screen and (max-width: 992px) {
+        #tradingView {
+           display:none
+        }
+        .chartPie {
+            display: none
+        }
+    }
+</style>
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Subheader-->
+    <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
+        <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+            <!--begin::Info-->
+            <div class="d-flex align-items-center flex-wrap mr-1">
+                <!--begin::Page Heading-->
+                <div class="d-flex align-items-baseline flex-wrap mr-5">
+                    <!--begin::Page Title-->
+                    <h5 class="text-dark font-weight-bold my-1 mr-5">Binance Hesap Özetim</h5>
+                    <!--end::Page Title-->
+                </div>
+                <!--end::Page Heading-->
+            </div>
+            <!--end::Info-->
+        </div>
+    </div>
+    <!--end::Subheader-->
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+            <!-- TradingView Widget BEGIN -->
+            <div id="tradingView" class="col-12 tradingview-widget-container">
+                <div id="tradingview_aedeb"></div>
+                <div class="tradingview-widget-copyright">TradingView'den <a href="https://tr.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Grafiği</span></a></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.widget(
+                        {
+                            "width": 1180,
+                            "height": 610,
+                            "symbol": "BTC",
+                            "interval": "D",
+                            "timezone": "Etc/UTC",
+                            "theme": "light",
+                            "style": "1",
+                            "locale": "tr",
+                            "toolbar_bg": "#f1f3f6",
+                            "enable_publishing": false,
+                            "withdateranges": true,
+                            "hide_side_toolbar": false,
+                            "allow_symbol_change": true,
+                            "details": true,
+                            "hotlist": true,
+                            "calendar": true,
+                            "studies": [
+                                "RSI@tv-basicstudies"
+                            ],
+                            "container_id": "tradingview_aedeb"
+                        }
+                    );
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+            <!--begin::Card-->
+            <div class="card card-custom">
+                <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                    <div class="card-title">
+                        <h3 class="card-label">
+                            Binance
+                            <span class="d-block text-muted pt-2 font-size-sm">Buradaki veriler binance API kullanılarak sağlanmıştır</span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!--begin: Datatable-->
+                    <div class="card-body">
+                        <!--begin: Datatable-->
+                        <div class="row">
+                            <div class="col-sm-12 chartPie" id="chartPieMyWallet"></div>
+                            <div class="col-xl-3">
+                                <!--begin::Tiles Widget 11-->
+                                <div class="card card-custom bg-success gutter-b" style="height:150px">
+                                    <div class="card-body">
+                                        <span class="svg-icon svg-icon-3x svg-icon-white ml-n2">
+                                            <img src="~/Theme/assets/media/svg/icons/Layout/Layout-4-blocks.svg" />
+                                        </span>
+                                        <div class="text-inverse-success font-weight-bolder font-size-h2 mt-3" id="totalMoney"></div>
+                                        <a href="#" class="text-inverse-success font-weight-bold font-size-lg mt-1">Toplam USDT</a>
+                                    </div>
+                                </div>
+                                <!--end::Tiles Widget 11-->
+                            </div>
+                            <div class="col-xl-3">
+                                <!--begin::Tiles Widget 11-->
+                                <div class="card card-custom bg-danger gutter-b" style="height:150px">
+                                    <div class="card-body">
+                                        <span class="svg-icon svg-icon-3x svg-icon-white ml-n2">
+                                            <img src="~/Theme/assets/media/svg/icons/Layout/Layout-4-blocks.svg" />
+                                        </span>
+                                        <div class="text-inverse-success font-weight-bolder font-size-h2 mt-3" id="totalMoneyTry"></div>
+                                        <a href="#" class="text-inverse-success font-weight-bold font-size-lg mt-1">Toplam TRY</a>
+                                    </div>
+                                </div>
+                                <!--end::Tiles Widget 11-->
+                            </div>
+                        </div>
+                        <!--end: Datatable-->
+                    </div>
+                </div>
+                <!--end::Card-->
+            </div>
+            <!--begin::Card-->
+            <div class="card card-custom">
+                <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                    <div class="card-title">
+                        <h3 class="card-label">
+                            Binance
+                            <span class="d-block text-muted pt-2 font-size-sm">Buradaki veriler binance API kullanılarak sağlanmıştır</span>
+                        </h3>
+                    </div>
+                    <div class="card-toolbar">
+                        <!--begin::Dropdown-->
+                        <div class="dropdown dropdown-inline mr-2">
+                            <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="la la-download"></i>Dışa Aktar
+                            </button>
+                            <!--begin::Dropdown Menu-->
+                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                                <ul class="nav flex-column nav-hover">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" id="export_excel">
+                                            <span class="nav-icon">
+                                                <i class="la la-file-excel-o"></i>
+                                            </span>
+                                            <span class="nav-text">Excel</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--end::Dropdown Menu-->
+                        </div>
+                        <!--end::Dropdown-->
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!--begin: Datatable-->
+                    <div class="card-body">
+                        <!--begin: Datatable-->
+                        <table class="table table-separate table-head-custom table-checkable" id="myWalletSummaryChart">
+                            <thead>
+                                <tr>
+                                    <th>Coin</th>
+                                    <th>Serbest Adet</th>
+                                    <th>Kilitli Adet</th>
+                                    <th>Birim Fiyatı(USDT)</th>
+                                    <th>Total Fiyat(USDT)</th>
+                                    <th>Portföy %</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <!--end: Datatable-->
+                    </div>
+                </div>
+                <!--end::Card-->
+            </div>
+            <!--end::Container-->
+
+        </div>
+        <!--end::Entry-->
+    </div>
+
+</div>
+@section Scripts
+{
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="~/Pages/Wallet/chart.js"></script>
+}
